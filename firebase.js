@@ -19,4 +19,4 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 
 // Export database and storage
-export { db, storage, collection, addDoc, getDocs, orderBy, query, deleteDoc };
+export { db, storage, collection, addDoc, getDocs, orderBy, query };
