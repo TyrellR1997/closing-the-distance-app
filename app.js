@@ -9,6 +9,10 @@ const noteInput = document.getElementById("noteInput");
 const notesSection = document.getElementById("notesSection");
 const viewGalleryBtn = document.getElementById("viewGalleryBtn");
 const viewNotesBtn = document.getElementById("viewNotesBtn");
+const galleryModal = document.getElementById("galleryModal");
+const notesModal = document.getElementById("notesModal");
+const closeGalleryModal = document.getElementById("closeGalleryModal");
+const closeNotesModal = document.getElementById("closeNotesModal");
 
 // Upload Image to Firebase Storage
 uploadBtn.addEventListener("click", async function() {
@@ -18,7 +22,6 @@ uploadBtn.addEventListener("click", async function() {
         return;
     }
 
-    //
     const storageRef = ref(storage, `images/${file.name}`);
     await uploadBytes(storageRef, file);
     const downloadURL = await getDownloadURL(storageRef);
@@ -76,17 +79,35 @@ async function loadNotes() {
     });
 }
 
-//
-
+// Event listeners for opening modals
 viewGalleryBtn.addEventListener("click", function() {
     loadImages();
+    galleryModal.style.display = "block";
 });
 
 viewNotesBtn.addEventListener("click", function() {
     loadNotes();
+    notesModal.style.display = "block";
 });
 
-// ...existing code...
+// Event listeners for closing modals
+closeGalleryModal.addEventListener("click", function() {
+    galleryModal.style.display = "none";
+});
+
+closeNotesModal.addEventListener("click", function() {
+    notesModal.style.display = "none";
+});
+
+// Close modals when clicking outside of them
+window.addEventListener("click", function(event) {
+    if (event.target == galleryModal) {
+        galleryModal.style.display = "none";
+    }
+    if (event.target == notesModal) {
+        notesModal.style.display = "none";
+    }
+});
 
 // Load Data on Page Load
 loadImages();
