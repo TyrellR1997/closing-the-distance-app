@@ -1,7 +1,7 @@
 // Import Firebase SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js";
-import { getFirestore, collection, addDoc, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, orderBy, query, deleteDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 // Firebase configuration (replace with your own values from Firebase Console)
 const firebaseConfig = {
@@ -19,4 +19,4 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 
 // Export database and storage
-export { db, storage, collection, addDoc, getDocs, orderBy, query };
+export { db, storage, collection, addDoc, getDocs, orderBy, query, deleteDoc };
