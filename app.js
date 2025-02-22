@@ -51,6 +51,7 @@ async function loadImages() {
 
 // Save Note to Firestore
 saveNoteBtn.addEventListener("click", async function() {
+    console.log("Saving note...");
     const noteText = noteInput.value.trim();
     if (noteText === "") {
         alert("Please write something.");
@@ -63,7 +64,6 @@ saveNoteBtn.addEventListener("click", async function() {
     });
 
     noteInput.value = "";
-    loadNotes();
 });
 
 // Load Notes from Firestore
