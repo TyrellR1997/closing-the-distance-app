@@ -1,4 +1,4 @@
-import { db, storage, collection, addDoc, getDocs, orderBy, query } from "./firebase.js";
+import { db, storage, collection, addDoc, getDocs, orderBy, query, deleteDoc } from "./firebase.js";
 import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js";
 
 const uploadBtn = document.getElementById("uploadBtn");
