@@ -103,8 +103,10 @@ async function loadNotes() {
         deleteNoteBtn.classList.add("delete-note-btn");
         deleteNoteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>'; // Using Font Awesome for the trash can icon
         deleteNoteBtn.addEventListener("click", async () => {
-            await deleteDoc(doc.ref);
-            loadNotes();
+            if (confirm("Are you sure you want to delete this note?")) {
+                await deleteDoc(doc.ref);
+                loadNotes();
+            }
         });
 
         noteDiv.appendChild(noteDate);
