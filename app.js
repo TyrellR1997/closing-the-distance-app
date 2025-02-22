@@ -51,9 +51,10 @@ async function loadImages() {
 
 // Save Note to Firestore
 saveNoteBtn.addEventListener("click", async function() {
-    console.log("Saving note...");
+    alert("Saving note...");
     const noteText = noteInput.value.trim();
     if (noteText === "") {
+
         alert("Please write something.");
         return;
     }
@@ -90,7 +91,7 @@ viewGalleryBtn.addEventListener("click", function() {
 });
 
 viewNotesBtn.addEventListener("click", function() {
-    console.log("Viewing Notes");
+    alert("Viewing Notes");
     loadNotes();
     notesModal.style.display = "block";
 });
