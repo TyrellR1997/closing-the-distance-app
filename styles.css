@@ -1,17 +1,65 @@
+/* Global styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Relaxing, soft font */
+    background-color: #f7f7f7; /* Light gray background (can be customized) */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* Header and Section Titles */
+h1, h2 {
+    color: #4f4f4f;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+input[type="file"], textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #6CACE4; /* Light blue color */
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4F8BC6; /* Darker blue */
+}
+
 /* Modal styles */
 .modal {
-    display: none;
-    position: fixed;
+    display: none; 
+    position: fixed; 
     z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     padding-top: 60px;
 }
+
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto;
@@ -21,13 +69,16 @@
     max-width: 800px; /* Ensure the modal does not exceed a certain width */
     word-wrap: break-word; /* Ensure long words break to fit within the modal */
     overflow-wrap: break-word; /* Ensure long words break to fit within the modal */
+    border-radius: 8px; /* Soft rounded corners */
 }
+
 .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
+
 .close:hover,
 .close:focus {
     color: black;
@@ -42,9 +93,9 @@
     margin: 10px 0;
     position: relative;
     background-color: #f9f9f9;
-    border-radius: 5px;
-    word-wrap: break-word; /* Ensure long words break to fit within the note envelope */
-    overflow-wrap: break-word; /* Ensure long words break to fit within the note envelope */
+    border-radius: 8px; /* Rounded corners for note envelopes */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .note-date {
@@ -57,8 +108,8 @@
 
 .note-content {
     margin: 20px 0;
-    word-wrap: break-word; /* Ensure long words break to fit within the note content */
-    overflow-wrap: break-word; /* Ensure long words break to fit within the note content */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .view-note-btn, .delete-note-btn {
