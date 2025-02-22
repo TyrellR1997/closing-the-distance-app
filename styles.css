@@ -18,6 +18,9 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    max-width: 800px; /* Ensure the modal does not exceed a certain width */
+    word-wrap: break-word; /* Ensure long words break to fit within the modal */
+    overflow-wrap: break-word; /* Ensure long words break to fit within the modal */
 }
 .close {
     color: #aaa;
@@ -40,6 +43,8 @@
     position: relative;
     background-color: #f9f9f9;
     border-radius: 5px;
+    word-wrap: break-word; /* Ensure long words break to fit within the note envelope */
+    overflow-wrap: break-word; /* Ensure long words break to fit within the note envelope */
 }
 
 .note-date {
@@ -52,6 +57,8 @@
 
 .note-content {
     margin: 20px 0;
+    word-wrap: break-word; /* Ensure long words break to fit within the note content */
+    overflow-wrap: break-word; /* Ensure long words break to fit within the note content */
 }
 
 .view-note-btn, .delete-note-btn {
@@ -81,4 +88,3 @@
 .delete-note-btn:hover {
     background-color: #c82333;
 }
-
