@@ -90,6 +90,7 @@ viewGalleryBtn.addEventListener("click", function() {
 });
 
 viewNotesBtn.addEventListener("click", function() {
+    console.log("Viewing Notes");
     loadNotes();
     notesModal.style.display = "block";
 });
