@@ -7,6 +7,8 @@ const imageGallery = document.getElementById("imageGallery");
 const saveNoteBtn = document.getElementById("saveNoteBtn");
 const noteInput = document.getElementById("noteInput");
 const notesSection = document.getElementById("notesSection");
+const viewGalleryBtn = document.getElementById("viewGalleryBtn");
+const viewNotesBtn = document.getElementById("viewNotesBtn");
 
 // Upload Image to Firebase Storage
 uploadBtn.addEventListener("click", async function() {
@@ -73,6 +75,18 @@ async function loadNotes() {
         notesSection.appendChild(noteDiv);
     });
 }
+
+//
+
+viewGalleryBtn.addEventListener("click", function() {
+    loadImages();
+});
+
+viewNotesBtn.addEventListener("click", function() {
+    loadNotes();
+});
+
+// ...existing code...
 
 // Load Data on Page Load
 loadImages();
