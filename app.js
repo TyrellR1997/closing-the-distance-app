@@ -68,8 +68,12 @@ saveNoteBtn.addEventListener("click", async function() {
 
 // Load Notes from Firestore
 async function loadNotes() {
+
+    console.log("Loading notes...");
     const q = query(collection(db, "notes"), orderBy("timestamp", "desc"));
     const querySnapshot = await getDocs(q);
+
+    console.log(querySnapshot);
 
     notesSection.innerHTML = "";
     querySnapshot.forEach(doc => {
