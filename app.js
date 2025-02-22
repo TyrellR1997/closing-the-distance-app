@@ -73,48 +73,68 @@ async function loadNotes() {
     const querySnapshot = await getDocs(q);
 
     notesSection.innerHTML = "";
+    const notesByDate = {};
+
     querySnapshot.forEach(doc => {
         const noteData = doc.data();
-        const noteDiv = document.createElement("div");
-        noteDiv.classList.add("note-envelope");
+        const noteTimestamp = new Date(noteData.timestamp.seconds * 1000);
+        const dateKey = noteTimestamp.toLocaleDateString();
 
-        const noteDate = document.createElement("div");
-        noteDate.classList.add("note-date");
-        noteDate.textContent = new Date(noteData.timestamp.seconds * 1000).toLocaleDateString();
+        if (!notesByDate[dateKey]) {
+            notesByDate[dateKey] = [];
+        }
 
-        const noteContent = document.createElement("div");
-        noteContent.classList.add("note-content");
-        noteContent.textContent = noteData.text.length > 100 ? noteData.text.substring(0, 100) + "..." : noteData.text;
-
-        const viewNoteBtn = document.createElement("button");
-        viewNoteBtn.classList.add("view-note-btn");
-        viewNoteBtn.textContent = "View Note";
-        viewNoteBtn.addEventListener("click", () => {
-            if (noteContent.textContent === noteData.text) {
-                noteContent.textContent = noteData.text.length > 100 ? noteData.text.substring(0, 100) + "..." : noteData.text;
-                viewNoteBtn.textContent = "View Note";
-            } else {
-                noteContent.textContent = noteData.text;
-                viewNoteBtn.textContent = "Collapse Note";
-            }
-        });
-
-        const deleteNoteBtn = document.createElement("button");
-        deleteNoteBtn.classList.add("delete-note-btn");
-        deleteNoteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>'; // Using Font Awesome for the trash can icon
-        deleteNoteBtn.addEventListener("click", async () => {
-            if (confirm("Are you sure you want to delete this note?")) {
-                await deleteDoc(doc.ref);
-                loadNotes();
-            }
-        });
-
-        noteDiv.appendChild(noteDate);
-        noteDiv.appendChild(noteContent);
-        noteDiv.appendChild(viewNoteBtn);
-        noteDiv.appendChild(deleteNoteBtn);
-        notesSection.appendChild(noteDiv);
+        notesByDate[dateKey].push({ id: doc.id, ...noteData });
     });
+
+    for (const date in notesByDate) {
+        const dateHeader = document.createElement("h3");
+        dateHeader.textContent = date;
+        notesSection.appendChild(dateHeader);
+
+        notesByDate[date].forEach(noteData => {
+            const noteDiv = document.createElement("div");
+            noteDiv.classList.add("note-envelope");
+
+            const noteDate = document.createElement("div");
+            noteDate.classList.add("note-date");
+            const noteTimestamp = new Date(noteData.timestamp.seconds * 1000);
+            noteDate.textContent = noteTimestamp.toLocaleDateString() + " " + noteTimestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+
+            const noteContent = document.createElement("div");
+            noteContent.classList.add("note-content");
+            noteContent.textContent = noteData.text.length > 100 ? noteData.text.substring(0, 100) + "..." : noteData.text;
+
+            const viewNoteBtn = document.createElement("button");
+            viewNoteBtn.classList.add("view-note-btn");
+            viewNoteBtn.textContent = "View Note";
+            viewNoteBtn.addEventListener("click", () => {
+                if (noteContent.textContent === noteData.text) {
+                    noteContent.textContent = noteData.text.length > 100 ? noteData.text.substring(0, 100) + "..." : noteData.text;
+                    viewNoteBtn.textContent = "View Note";
+                } else {
+                    noteContent.textContent = noteData.text;
+                    viewNoteBtn.textContent = "Collapse Note";
+                }
+            });
+
+            const deleteNoteBtn = document.createElement("button");
+            deleteNoteBtn.classList.add("delete-note-btn");
+            deleteNoteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>'; // Using Font Awesome for the trash can icon
+            deleteNoteBtn.addEventListener("click", async () => {
+                if (confirm("Are you sure you want to delete this note?")) {
+                    await deleteDoc(doc.ref);
+                    loadNotes();
+                }
+            });
+
+            noteDiv.appendChild(noteDate);
+            noteDiv.appendChild(noteContent);
+            noteDiv.appendChild(viewNoteBtn);
+            noteDiv.appendChild(deleteNoteBtn);
+            notesSection.appendChild(noteDiv);
+        });
+    }
 }
 
 // Event listeners for opening modals
