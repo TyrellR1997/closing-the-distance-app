@@ -67,7 +67,6 @@ saveNoteBtn.addEventListener("click", async function() {
     noteInput.value = "";
 });
 
-// Load Notes from Firestore
 async function loadNotes() {
     console.log("Loading notes...");
     const q = query(collection(db, "notes"), orderBy("timestamp", "desc"));
@@ -91,12 +90,27 @@ async function loadNotes() {
         viewNoteBtn.classList.add("view-note-btn");
         viewNoteBtn.textContent = "View Note";
         viewNoteBtn.addEventListener("click", () => {
-            alert(noteData.text);
+            if (noteContent.textContent === noteData.text) {
+                noteContent.textContent = noteData.text.length > 100 ? noteData.text.substring(0, 100) + "..." : noteData.text;
+                viewNoteBtn.textContent = "View Note";
+            } else {
+                noteContent.textContent = noteData.text;
+                viewNoteBtn.textContent = "Collapse Note";
+            }
+        });
+
+        const deleteNoteBtn = document.createElement("button");
+        deleteNoteBtn.classList.add("delete-note-btn");
+        deleteNoteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>'; // Using Font Awesome for the trash can icon
+        deleteNoteBtn.addEventListener("click", async () => {
+            await deleteDoc(doc.ref);
+            loadNotes();
         });
 
         noteDiv.appendChild(noteDate);
         noteDiv.appendChild(noteContent);
         noteDiv.appendChild(viewNoteBtn);
+        noteDiv.appendChild(deleteNoteBtn);
         notesSection.appendChild(noteDiv);
     });
 }
