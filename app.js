@@ -69,17 +69,34 @@ saveNoteBtn.addEventListener("click", async function() {
 
 // Load Notes from Firestore
 async function loadNotes() {
-
     console.log("Loading notes...");
     const q = query(collection(db, "notes"), orderBy("timestamp", "desc"));
     const querySnapshot = await getDocs(q);
 
-    console.log(querySnapshot);
-
     notesSection.innerHTML = "";
     querySnapshot.forEach(doc => {
+        const noteData = doc.data();
         const noteDiv = document.createElement("div");
-        noteDiv.textContent = doc.data().text;
+        noteDiv.classList.add("note-envelope");
+
+        const noteDate = document.createElement("div");
+        noteDate.classList.add("note-date");
+        noteDate.textContent = new Date(noteData.timestamp.seconds * 1000).toLocaleDateString();
+
+        const noteContent = document.createElement("div");
+        noteContent.classList.add("note-content");
+        noteContent.textContent = noteData.text.length > 100 ? noteData.text.substring(0, 100) + "..." : noteData.text;
+
+        const viewNoteBtn = document.createElement("button");
+        viewNoteBtn.classList.add("view-note-btn");
+        viewNoteBtn.textContent = "View Note";
+        viewNoteBtn.addEventListener("click", () => {
+            alert(noteData.text);
+        });
+
+        noteDiv.appendChild(noteDate);
+        noteDiv.appendChild(noteContent);
+        noteDiv.appendChild(viewNoteBtn);
         notesSection.appendChild(noteDiv);
     });
 }
