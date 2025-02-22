@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image & Notes App</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script type="module" src="firebase.js"></script>
     <script type="module" src="app.js"></script>
 </head>
 <body>
     <h1>Upload Images & Write Notes</h1>
+
+    <!-- Color Picker Button -->
+    <button id="colorPickerBtn">Change Background Color</button>
+    <input type="color" id="colorPicker" style="display: none;"/>
 
     <!-- Image Upload Section -->
     <h2>Upload Image</h2>
@@ -40,5 +42,7 @@
             <div id="notesSection"></div>
         </div>
     </div>
+
+    <script src="app.js"></script>
 </body>
 </html>

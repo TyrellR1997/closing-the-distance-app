@@ -168,6 +168,15 @@ window.addEventListener("click", function(event) {
     }
 });
 
+document.getElementById('colorPickerBtn').addEventListener('click', function() {
+    document.getElementById('colorPicker').click(); // Open color picker when button is clicked
+});
+
+document.getElementById('colorPicker').addEventListener('input', function(event) {
+    document.body.style.backgroundColor = event.target.value; // Change background color when a color is selected
+});
+
+
 // Load Data on Page Load
 loadImages();
 loadNotes();
