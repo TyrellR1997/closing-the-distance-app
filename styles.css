@@ -153,7 +153,6 @@ button:hover {
     text-decoration: none;
     cursor: pointer;
 }
-
 /* Note envelope styles */
 .note-envelope {
     border: 1px solid #ccc;
@@ -164,6 +163,8 @@ button:hover {
     border-radius: 8px; /* Rounded corners for note envelopes */
     word-wrap: break-word;
     overflow-wrap: break-word;
+    color: black; /* Ensure text content is black */
+    text-align: left; /* Ensure text starts at the very top left corner */
 }
 
 .note-date {
@@ -178,6 +179,8 @@ button:hover {
     margin: 20px 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    color: black; /* Ensure text content is black */
+    text-align: left; /* Ensure text starts at the very top left corner */
 }
 
 .view-note-btn, .delete-note-btn {
