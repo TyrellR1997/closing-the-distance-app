@@ -5,62 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cozy Relationship App</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script type="module" src="firebase.js"></script>
     <script type="module" src="app.js"></script>
 </head>
 <body>
 
-    <div class="cozy-container">
+    <header>
         <h1>Build a cozy home for your relationship</h1>
+    </header>
 
-        <div class="cozy-room">
-            <div class="lamp left"></div>
-            <div class="lamp right"></div>
-            <div class="bookshelf"></div>
-            <div class="sofa">
-                <div class="cat"></div>
+    <main>
+        <div class="cozy-container">
+            <div class="cozy-room">
+                <div class="lamp left"></div>
+                <div class="lamp right"></div>
+                <div class="bookshelf"></div>
+                <div class="sofa">
+                    <div class="cat"></div>
+                </div>
+                <div class="table">
+                    <div class="books"></div>
+                    <div class="letter"></div>
+                </div>
             </div>
-            <div class="table">
-                <div class="books"></div>
-                <div class="letter"></div>
+
+            <button id="colorPickerBtn">Change Background</button>
+            <input type="color" id="colorPicker" style="display: none;"/>
+
+            <section class="upload-section">
+                <h2>Upload Image</h2>
+                <input type="file" id="fileInput" accept="image/*">
+                <button id="uploadBtn">Upload</button>
+                <button id="viewGalleryBtn">View Gallery</button>
+            </section>
+
+            <section class="notes-section">
+                <h2>Write a Note</h2>
+                <textarea id="noteInput" placeholder="Write a note..." rows="4" cols="50"></textarea>
+                <button id="saveNoteBtn">Save Note</button>
+                <button id="viewNotesBtn">View Notes</button>
+            </section>
+        </div>
+
+        <!-- Modal for Gallery -->
+        <div id="galleryModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeGalleryModal">&times;</span>
+                <div id="imageGallery"></div>
             </div>
         </div>
 
-        <button id="colorPickerBtn">Change Background</button>
-        <input type="color" id="colorPicker" style="display: none;"/>
+        <!-- Modal for Notes -->
+        <div id="notesModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeNotesModal">&times;</span>
+                <div id="notesSection"></div>
+            </div>
+        </div>
+    </main>
 
-        <h2>Upload Image</h2>
-        <input type="file" id="fileInput" accept="image/*">
-        <button id="uploadBtn">Upload</button>
-        <button id="viewGalleryBtn">View Gallery</button>
-
-        <h2>Write a Note</h2>
-        <textarea id="noteInput" placeholder="Write a note..." rows="4" cols="50"></textarea>
-        <button id="saveNoteBtn">Save Note</button>
-        <button id="viewNotesBtn">View Notes</button>
-
-
-                <!-- Modal for Gallery -->
-                <div id="galleryModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close" id="closeGalleryModal">&times;</span>
-                        <div id="imageGallery"></div>
-                    </div>
-                </div>
-            
-                <!-- Modal for Notes -->
-                <div id="notesModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close" id="closeNotesModal">&times;</span>
-                        <div id="notesSection"></div>
-                    </div>
-                </div>
-            
-                <script src="app.js"></script>
-        
-    </div>
-
-
-
+    <script src="app.js"></script>
 </body>
 </html>

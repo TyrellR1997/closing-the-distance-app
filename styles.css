@@ -1,14 +1,51 @@
-/* General Styles */
+/* Global styles */
 body {
-    background: linear-gradient(to top, #1b1b3a, #2a2a5d);
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #ffcccb;
+    width: 100%;
+    padding: 20px 0;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #333;
+}
+
+main {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #4f4f4f;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* Cozy Room */
@@ -88,43 +125,41 @@ body {
 
 /* Buttons */
 button {
-    background-color: #ff758c;
-    border: none;
-    color: white;
     padding: 10px 20px;
-    margin: 10px;
-    border-radius: 20px;
+    border-radius: 8px;
+    border: none;
     font-size: 16px;
     cursor: pointer;
-    box-shadow: 0px 5px 10px rgba(255, 117, 140, 0.3);
+    background-color: #ffcccb;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff9999;
 }
 
 /* Header and Section Titles */
-h1, h2 {
+ h3 {
     color: #4f4f4f;
-    text-align: center;
+    text-align: left;
     margin-bottom: 20px;
 }
 
 /* Notes and Upload */
 input[type="file"], textarea {
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #555;
-    border-radius: 10px;
+    width: 100%;
     padding: 10px;
-    width: 90%;
-}
-
-
-button:hover {
-    background-color: #4F8BC6; /* Darker blue */
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
 }
 
 /* Modal styles */
 .modal {
-    display: none; 
-    position: fixed; 
+    display: none;
+    position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
@@ -141,10 +176,10 @@ button:hover {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 800px; /* Ensure the modal does not exceed a certain width */
-    word-wrap: break-word; /* Ensure long words break to fit within the modal */
-    overflow-wrap: break-word; /* Ensure long words break to fit within the modal */
-    border-radius: 8px; /* Soft rounded corners */
+    max-width: 800px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    border-radius: 8px;
 }
 
 .close {
@@ -160,6 +195,7 @@ button:hover {
     text-decoration: none;
     cursor: pointer;
 }
+
 /* Note envelope styles */
 .note-envelope {
     border: 1px solid #ccc;
@@ -167,11 +203,9 @@ button:hover {
     margin: 10px 0;
     position: relative;
     background-color: #f9f9f9;
-    border-radius: 8px; /* Rounded corners for note envelopes */
+    border-radius: 8px;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    color: black; /* Ensure text content is black */
-    text-align: left; /* Ensure text starts at the very top left corner */
 }
 
 .note-date {
@@ -186,8 +220,6 @@ button:hover {
     margin: 20px 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    color: black; /* Ensure text content is black */
-    text-align: left; /* Ensure text starts at the very top left corner */
 }
 
 .view-note-btn, .delete-note-btn {
@@ -208,14 +240,6 @@ button:hover {
 .delete-note-btn {
     right: 10px;
     background-color: #dc3545;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.delete-note-btn::before {
-    content: "\1F5D1"; /* Unicode for trash can icon */
-    margin-right: 5px;
 }
 
 .view-note-btn:hover {
