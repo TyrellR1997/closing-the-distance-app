@@ -11,12 +11,13 @@
 </head>
 <body>
 
-    <header>
-        <h1>Build a cozy home for your relationship</h1>
-    </header>
+
 
     <main>
         <div class="cozy-container">
+            <header>
+                <h1>Build a cozy home for your relationship</h1>
+            </header>
             <div class="cozy-room">
                 <div class="lamp left"></div>
                 <div class="lamp right"></div>
@@ -28,24 +29,26 @@
                     <div class="books"></div>
                     <div class="letter"></div>
                 </div>
+
+                <div class="controls">
+                    <button id="colorPickerBtn">Change Background</button>
+                    <input type="color" id="colorPicker" style="display: none;"/>
+                </div>
+
+                <section class="upload-section">
+                    <h2>Upload Image</h2>
+                    <input type="file" id="fileInput" accept="image/*">
+                    <button id="uploadBtn">Upload</button>
+                    <button id="viewGalleryBtn">View Gallery</button>
+                </section>
+
+                <section class="notes-section">
+                    <h2>Write a Note</h2>
+                    <textarea id="noteInput" placeholder="Write a note..." rows="4" cols="50"></textarea>
+                    <button id="saveNoteBtn">Save Note</button>
+                    <button id="viewNotesBtn">View Notes</button>
+                </section>
             </div>
-
-            <button id="colorPickerBtn">Change Background</button>
-            <input type="color" id="colorPicker" style="display: none;"/>
-
-            <section class="upload-section">
-                <h2>Upload Image</h2>
-                <input type="file" id="fileInput" accept="image/*">
-                <button id="uploadBtn">Upload</button>
-                <button id="viewGalleryBtn">View Gallery</button>
-            </section>
-
-            <section class="notes-section">
-                <h2>Write a Note</h2>
-                <textarea id="noteInput" placeholder="Write a note..." rows="4" cols="50"></textarea>
-                <button id="saveNoteBtn">Save Note</button>
-                <button id="viewNotesBtn">View Notes</button>
-            </section>
         </div>
 
         <!-- Modal for Gallery -->
