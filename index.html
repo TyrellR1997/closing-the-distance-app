@@ -3,40 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cozy Relationship App</title>
+
     <link rel="stylesheet" href="styles.css">
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="app.js"></script>
 </head>
 <body>
 
-    <div class="cozy-container">
-        <h1>Build a cozy home for your relationship</h1>
+    <!-- Color Picker Button -->
+    <button id="colorPickerBtn">Change Background Color</button>
+    <input type="color" id="colorPicker" style="display: none;"/>
 
-        <div class="cozy-room">
-            <div class="lamp left"></div>
-            <div class="lamp right"></div>
-            <div class="bookshelf"></div>
-            <div class="sofa">
-                <div class="cat"></div>
-            </div>
-            <div class="table">
-                <div class="books"></div>
-                <div class="letter"></div>
-            </div>
+    <!-- Image Upload Section -->
+    <h2>Upload Image</h2>
+    <input type="file" id="fileInput" accept="image/*">
+    <button id="uploadBtn">Upload</button>
+    <button id="viewGalleryBtn">View Image Gallery</button>
+
+    <!-- Notes Section -->
+    <h2>Write a Note</h2>
+    <textarea id="noteInput" placeholder="Write a note..." rows="4" cols="50"></textarea>
+    <button id="saveNoteBtn">Save Note</button>
+    <button id="viewNotesBtn">View Notes</button>
+
+    <!-- Modal for Gallery -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeGalleryModal">&times;</span>
+            <div id="imageGallery"></div>
         </div>
-
-        <button id="colorPickerBtn">Change Background</button>
-        <input type="color" id="colorPicker" style="display: none;"/>
-
-        <h2>Upload Image</h2>
-        <input type="file" id="fileInput" accept="image/*">
-        <button id="uploadBtn">Upload</button>
-        <button id="viewGalleryBtn">View Gallery</button>
-
-        <h2>Write a Note</h2>
-        <textarea id="noteInput" placeholder="Write a note..." rows="4" cols="50"></textarea>
-        <button id="saveNoteBtn">Save Note</button>
-        <button id="viewNotesBtn">View Notes</button>
     </div>
 
+    <!-- Modal for Notes -->
+    <div id="notesModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeNotesModal">&times;</span>
+            <div id="notesSection"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
