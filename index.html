@@ -38,7 +38,27 @@
         <textarea id="noteInput" placeholder="Write a note..." rows="4" cols="50"></textarea>
         <button id="saveNoteBtn">Save Note</button>
         <button id="viewNotesBtn">View Notes</button>
+
+        
     </div>
+
+        <!-- Modal for Gallery -->
+        <div id="galleryModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeGalleryModal">&times;</span>
+                <div id="imageGallery"></div>
+            </div>
+        </div>
+    
+        <!-- Modal for Notes -->
+        <div id="notesModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeNotesModal">&times;</span>
+                <div id="notesSection"></div>
+            </div>
+        </div>
+    
+        <script src="app.js"></script>
 
 </body>
 </html>
