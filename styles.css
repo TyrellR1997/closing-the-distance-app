@@ -201,6 +201,14 @@ button:hover {
 .delete-note-btn {
     right: 10px;
     background-color: #dc3545;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-note-btn::before {
+    content: "\1F5D1"; /* Unicode for trash can icon */
+    margin-right: 5px;
 }
 
 .view-note-btn:hover {
