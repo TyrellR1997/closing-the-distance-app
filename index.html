@@ -15,9 +15,7 @@
 
     <main>
         <div class="cozy-container">
-            <header>
-                <h1>Build a cozy home for your relationship</h1>
-            </header>
+
             <div class="cozy-room">
                 <div class="lamp left"></div>
                 <div class="lamp right"></div>
@@ -26,8 +24,8 @@
                     <div class="cat"></div>
                 </div>
                 <div class="table">
-                    <div class="books"></div>
-                    <div class="letter"></div>
+                    <div class="books" id="books"></div>
+                    <div class="letter" id="viewNotesBtn"></div>
                 </div>
 
                 <div class="controls">
@@ -35,7 +33,7 @@
                     <input type="color" id="colorPicker" style="display: none;"/>
                 </div>
 
-                <section class="upload-section">
+                <!-- <section class="upload-section">
                     <h2>Upload Image</h2>
                     <input type="file" id="fileInput" accept="image/*">
                     <button id="uploadBtn">Upload</button>
@@ -47,7 +45,7 @@
                     <textarea id="noteInput" placeholder="Write a note..." rows="4" cols="50"></textarea>
                     <button id="saveNoteBtn">Save Note</button>
                     <button id="viewNotesBtn">View Notes</button>
-                </section>
+                </section> -->
             </div>
         </div>
 
@@ -63,9 +61,23 @@
         <div id="notesModal" class="modal">
             <div class="modal-content">
                 <span class="close" id="closeNotesModal">&times;</span>
-                <div id="notesSection"></div>
+                <div class="tabs">
+                    <button class="tablinks" onclick="openTab(event, 'CreateNote')">Create Note</button>
+                    <button class="tablinks" onclick="openTab(event, 'SavedNotes')">Saved Notes</button>
+                </div>
+                <div id="CreateNote" class="tabcontent">
+                    <h2>Write a Note</h2>
+                    <textarea id="noteInput" placeholder="Write a note..." rows="4" cols="50"></textarea>
+                    <button id="saveNoteBtn">Save Note</button>
+                </div>
+                <div id="SavedNotes" class="tabcontent">
+                    <h2>All Saved Notes</h2>
+                    <div id="notesSection"></div>
+                </div>
             </div>
         </div>
+
+ 
     </main>
 
     <script src="app.js"></script>
