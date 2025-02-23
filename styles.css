@@ -7,8 +7,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    text-align: center;
+    height: 100vh;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -30,25 +29,31 @@ header h1 {
 
 main {
     width: 100%;
-    max-width: 800px;
-    padding: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
 }
 
 .cozy-container {
     width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
+    height: 100%;
+    margin: 0;
     padding: 20px;
     box-sizing: border-box;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .cozy-room {
     width: 100%;
-    height: auto;
+    height: 100%;
     background: #1c1c3c;
     border-radius: 20px;
     position: relative;
@@ -67,8 +72,8 @@ main {
 .lamp {
     position: absolute;
     top: 0px;
-    width: 20px;
-    height: 40px;
+    width: 5%;
+    height: 10%;
     background: yellow;
     box-shadow: 0px 0px 20px rgba(255, 255, 0, 0.8);
     border-radius: 5px;
@@ -82,76 +87,101 @@ main {
 
 .bookshelf {
     position: absolute;
-    bottom: 60px;
-    left: 10px;
-    width: 80px;
-    height: 100px;
+    bottom: 15%;
+    left: 2%;
+    width: 10%;
+    height: 20%;
     background: #333;
 }
 
 .sofa {
     position: absolute;
-    bottom: 20px;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
-    width: 120px;
-    height: 60px;
+    width: 30%;
+    height: 15%;
     background: #6a5acd;
     border-radius: 15px;
 }
 
 .cat {
     position: absolute;
-    bottom: 5px;
-    left: 30px;
-    width: 40px;
-    height: 20px;
+    bottom: 2%;
+    left: 25%;
+    width: 10%;
+    height: 5%;
     background: black;
     border-radius: 10px;
 }
 
-/* Table */
 .table {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    width: 80px;
-    height: 50px;
-    background: #444;
+    bottom: 2%;
+    right: 2%;
+    width: 10%;
+    height: 10%;
+    background: #8B4513; /* Brown color */
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Books */
+.table::before, .table::after, .table-leg::before, .table-leg::after {
+    content: '';
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    background: #8B4513; /* Brown color */
+}
+
+.table::before {
+    top: 100%;
+    left: 0;
+}
+
+.table::after {
+    top: 100%;
+    right: 0;
+}
+
+.table-leg::before {
+    bottom: 100%;
+    left: 0;
+}
+
+.table-leg::after {
+    bottom: 100%;
+    right: 0;
+}
+
 .books {
-    width: 60px;
-    height: 20px;
+    width: 75%;
+    height: 25%;
     background: #8B4513;
     border-radius: 3px;
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 10%;
+    left: 10%;
 }
 
-/* Letter */
 .letter {
-    width: 40px;
-    height: 30px;
+    width: 50%;
+    height: 50%;
     background: #fff;
     border: 1px solid #ccc;
     border-radius: 3px;
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 10%;
+    right: 10%;
 }
 
 button {
     padding: 10px 20px;
     border-radius: 8px;
     border: none;
-    font-size: 16px;
+    font-size: 1.5vw;
     cursor: pointer;
     background-color: #ffcccb;
     color: white;
@@ -174,7 +204,7 @@ input[type="file"], textarea {
     margin: 10px 0;
     border-radius: 8px;
     border: 1px solid #ccc;
-    font-size: 16px;
+    font-size: 1.5vw;
 }
 
 .modal {
@@ -285,7 +315,7 @@ input[type="file"], textarea {
     padding: 10px 20px;
     border-radius: 8px;
     border: none;
-    font-size: 16px;
+    font-size: 1.5vw;
     cursor: pointer;
     background-color: #6CACE4;
     color: white;
