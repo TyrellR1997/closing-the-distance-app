@@ -99,8 +99,15 @@ button {
     box-shadow: 0px 5px 10px rgba(255, 117, 140, 0.3);
 }
 
+/* Header and Section Titles */
+h1, h2 {
+    color: #4f4f4f;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 /* Notes and Upload */
-textarea {
+input[type="file"], textarea {
     background-color: #333;
     color: #fff;
     border: 1px solid #555;
